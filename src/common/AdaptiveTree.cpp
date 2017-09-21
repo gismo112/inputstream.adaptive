@@ -54,7 +54,7 @@ namespace adaptive
     , average_download_speed_(0.0f)
     , encryptionState_(ENCRYTIONSTATE_UNENCRYPTED)
     , included_types_(0)
-    , need_secure_decoder_(false)
+    , need_secure_decoder_(true)
     , updateInterval_(~0)
     , updateThread_(nullptr)
     , lastUpdated_(std::chrono::system_clock::now())
