@@ -161,9 +161,10 @@ protected:
     
     // methods that can be overridden
     virtual AP4_Result ProcessTrack(AP4_Track* track);
-    virtual AP4_Result ProcessMoof(AP4_ContainerAtom* moof, 
-                                   AP4_Position       moof_offset, 
-                                   AP4_Position       mdat_payload_offset);
+    virtual AP4_Result ProcessMoof(AP4_ContainerAtom* moof,
+      AP4_Position       moof_offset,
+      AP4_Position       mdat_payload_offset,
+      AP4_UI64 mdat_payload_size);
     
     // methods
     Tracker*   FindTracker(AP4_UI32 track_id);
@@ -173,6 +174,8 @@ protected:
     AP4_Result ReadNextSample(AP4_Sample&     sample, 
                               AP4_DataBuffer* sample_data,
                               AP4_UI32&       track_id);
+    AP4_Result GetSample(AP4_UI32 track_id, AP4_Sample &sample, AP4_Ordinal sample_index);
+
     void       FlushQueue(Tracker* tracker);
     void       FlushQueues();
     void       Reset();
